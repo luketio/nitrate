@@ -10,6 +10,9 @@
         "beforeBuildCommand": "pnpm build"
     },
     "tauri": {
+        "allowlist": {
+            "all": true
+        },
         "bundle": {
             "active": true,
             "targets": "all",
@@ -45,9 +48,6 @@
         },
         "updater": {
             "active": false
-        },
-        "allowlist": {
-            "all": true
         },
         "windows": [
             {

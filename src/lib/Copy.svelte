@@ -1,12 +1,14 @@
 <script lang="ts">
-	let count: number = 0;
-	const increment = () => {
-		count += 1;
+	import { invoke } from '@tauri-apps/api/tauri'
+	const copy = () => {
+		invoke("copy_image", {
+			filename: "/Users/luke/dev/nitrate/src/assets/svelte.png"
+		});
 	};
 </script>
 
-<button on:click={increment}>
-	Clicks: {count}
+<button on:click={copy}>
+	COPY
 </button>
 
 <style>
