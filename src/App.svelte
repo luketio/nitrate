@@ -2,32 +2,49 @@
 	import hotkeys from "hotkeys-js";
 	import { appWindow } from "@tauri-apps/api/window";
 
-	import logo from "./assets/svelte.png";
 	import Emoji from "./components/Emoji.svelte";
 	import Hide from "./components/Hide.svelte";
 
-	hotkeys("alt+r", function(event, handler){
+	hotkeys("alt+r", function(event, handler) {
 		event.preventDefault();
 		appWindow.minimize();
 	});
 </script>
 
-<main>
-	<img src={logo} alt="Svelte Logo" />
-
-	<Emoji img="svelte.png" />
+<header>
 	<Hide />
+</header>
+
+<main>
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
+	<Emoji img="svelte.png" />
 </main>
 
 <style lang="scss">
-	main {
-		text-align: center;
-		padding: 1em;
-		margin: 0 auto;
+	header {
+		margin: 6px;
 	}
 
-	img {
-		height: 16rem;
-		width: 16rem;
+	main {
+		margin-left: 6px;
+		margin-right: 6px;
 	}
 </style>

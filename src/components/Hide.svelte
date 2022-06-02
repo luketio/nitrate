@@ -6,29 +6,25 @@
 </script>
 
 <button on:click={hide}>
-	HIDE WINDOW
+	HIDE
 </button>
 
 <style lang="scss">
 	button {
-		font-family: inherit;
-		font-size: inherit;
-		padding: 1em 2em;
-		color: #ff3e00;
-		background-color: rgba(255, 62, 0, 0.1);
-		border-radius: 2em;
-		border: 2px solid rgba(255, 62, 0, 0);
-		outline: none;
-		width: 200px;
-		font-variant-numeric: tabular-nums;
+		font-size: 13px;
+		padding: 4px;
+		border-radius: 1vw;
+		border: none;
+		width: 50px;
 		cursor: pointer;
+		transition: background-color 0.2s;
+
+		&:hover {
+			background-color: $text-color-hover;
+		}
+		&:active {
+			color: white;
+		}
 	}
 
-	button:focus {
-		border: 2px solid #ff3e00;
-	}
-
-	button:active {
-		background-color: rgba(255, 62, 0, 0.2);
-	}
 </style>

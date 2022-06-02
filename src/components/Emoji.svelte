@@ -4,39 +4,43 @@
 	import { ASSETS_PATH } from "../lib/constants";
 
 	export let img: string;
+	let filename = `${ASSETS_PATH}/${img}`;
 
 	const copy = () => {
 		invoke("copy_image", {
-			filename: `${ASSETS_PATH}/${img}`
+			filename: filename,
 		});
 		appWindow.minimize();
 	};
 </script>
 
 <button on:click={copy}>
-	COPY
+	<img src={`emojis/${img}`} alt={`emoji: ${img}`}/>
 </button>
 
 <style lang="scss">
 	button {
-		font-family: inherit;
-		font-size: inherit;
-		padding: 1em 2em;
-		color: #ff3e00;
-		background-color: rgba(255, 62, 0, 0.1);
-		border-radius: 2em;
-		border: 2px solid rgba(255, 62, 0, 0);
-		outline: none;
-		width: 200px;
-		font-variant-numeric: tabular-nums;
 		cursor: pointer;
+
+		border: none;
+		padding: 4px;
+		border-radius: 1.5vw;
+		border: none;
+
+		transition: background-color 0.2s;
+
+		&:hover {
+			background-color: $text-color-hover;
+			img {
+				background-color: $text-color-hover;
+			}
+		}
 	}
 
-	button:focus {
-		border: 2px solid #ff3e00;
-	}
+	img {
+		transition: background-color 0.2s;
 
-	button:active {
-		background-color: rgba(255, 62, 0, 0.2);
+		height: 50px;
+		width: 50px;
 	}
 </style>
