@@ -1,8 +1,12 @@
 <script lang="ts">
 	import { invoke } from '@tauri-apps/api/tauri'
+	import { ASSETS_PATH } from '../lib/constants';
+
+	export let img: string;
+
 	const copy = () => {
 		invoke("copy_image", {
-			filename: "/Users/luke/dev/nitrate/src/assets/svelte.png"
+			filename: `${ASSETS_PATH}/${img}`
 		});
 	};
 </script>

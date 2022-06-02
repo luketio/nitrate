@@ -5,6 +5,9 @@ export default {
   // for more information about preprocessors
   preprocess: [
     sveltePreprocess({
+      scss: {
+        prependData: '@use "src/variables.scss" as *;',
+      },
     }),
   ],
 };

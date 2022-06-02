@@ -1,10 +1,10 @@
 <script lang="ts">
-	import logo from "./assets/svelte.png";
-	import Copy from "./lib/Copy.svelte";
-	import Hide from "./lib/Hide.svelte";
-
 	import hotkeys from 'hotkeys-js';
 	import { appWindow } from "@tauri-apps/api/window";
+
+	import logo from "./assets/svelte.png";
+	import Emoji from "./components/Emoji.svelte";
+	import Hide from "./components/Hide.svelte";
 
 	hotkeys('alt+r', function(event, handler){
 		event.preventDefault();
@@ -15,16 +15,11 @@
 <main>
 	<img src={logo} alt="Svelte Logo" />
 
-	<Copy />
+	<Emoji img="svelte.png" />
 	<Hide />
 </main>
 
 <style>
-	:root {
-		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-			Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-	}
-
 	main {
 		text-align: center;
 		padding: 1em;
