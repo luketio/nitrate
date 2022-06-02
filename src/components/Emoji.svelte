@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { invoke } from '@tauri-apps/api/tauri'
-	import { ASSETS_PATH } from '../lib/constants';
+	import { invoke } from "@tauri-apps/api/tauri"
+	import { appWindow } from "@tauri-apps/api/window";
+	import { ASSETS_PATH } from "../lib/constants";
 
 	export let img: string;
 
@@ -8,6 +9,7 @@
 		invoke("copy_image", {
 			filename: `${ASSETS_PATH}/${img}`
 		});
+		appWindow.minimize();
 	};
 </script>
 
@@ -15,7 +17,7 @@
 	COPY
 </button>
 
-<style>
+<style lang="scss">
 	button {
 		font-family: inherit;
 		font-size: inherit;

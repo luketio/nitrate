@@ -9,7 +9,7 @@
 	HIDE WINDOW
 </button>
 
-<style>
+<style lang="scss">
 	button {
 		font-family: inherit;
 		font-size: inherit;

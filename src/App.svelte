@@ -1,12 +1,12 @@
 <script lang="ts">
-	import hotkeys from 'hotkeys-js';
+	import hotkeys from "hotkeys-js";
 	import { appWindow } from "@tauri-apps/api/window";
 
 	import logo from "./assets/svelte.png";
 	import Emoji from "./components/Emoji.svelte";
 	import Hide from "./components/Hide.svelte";
 
-	hotkeys('alt+r', function(event, handler){
+	hotkeys("alt+r", function(event, handler){
 		event.preventDefault();
 		appWindow.minimize();
 	});
@@ -19,7 +19,7 @@
 	<Hide />
 </main>
 
-<style>
+<style lang="scss">
 	main {
 		text-align: center;
 		padding: 1em;
