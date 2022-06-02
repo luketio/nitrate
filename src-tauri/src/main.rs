@@ -13,12 +13,3 @@ fn main() {
         .run(tauri::generate_context!())
         .expect("failed to run Nitrate application");
 }
-
-fn show_window() {
-	//also create Clipboard ctx
-
-}
-
-fn hide_window() {
-
-}

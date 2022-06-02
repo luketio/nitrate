@@ -1,8 +1,12 @@
 #[tauri::command]
 pub fn copy_image(filename: String) {
-	let mut ctx = arboard::Clipboard::new().unwrap();
+	let mut ctx = ::arboard::Clipboard::new().expect("failed to create Clipboard context");
 
-	let img = ::image::io::Reader::open(filename).unwrap().decode().expect("failed to decode image");
+	let img = ::image::io::Reader::open(filename)
+		.expect("failed to open image")
+		.decode()
+		.expect("failed to decode image");
+
     let rgba8 = img.into_rgba8();
     let (w,h) = rgba8.dimensions();
     let bytes = rgba8.into_raw();

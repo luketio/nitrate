@@ -1,12 +1,22 @@
 <script lang="ts">
 	import logo from "./assets/svelte.png";
 	import Copy from "./lib/Copy.svelte";
+	import Hide from "./lib/Hide.svelte";
+
+	import hotkeys from 'hotkeys-js';
+	import { appWindow } from "@tauri-apps/api/window";
+
+	hotkeys('alt+r', function(event, handler){
+		event.preventDefault();
+		appWindow.minimize();
+	});
 </script>
 
 <main>
 	<img src={logo} alt="Svelte Logo" />
 
 	<Copy />
+	<Hide />
 </main>
 
 <style>
