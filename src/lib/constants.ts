@@ -1,1 +1,1 @@
-export const ASSETS_PATH = "/Users/luke/dev/nitrate/public/emojis";
+export const ASSETS_PATH = "/Users/luke/Library/Application Support/Nitrate";

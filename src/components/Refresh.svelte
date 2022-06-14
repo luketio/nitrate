@@ -1,12 +1,16 @@
 <script lang="ts">
-	import { appWindow } from "@tauri-apps/api/window";
-	const hide = () => {
-		appWindow.minimize();
-	};
+	import { invoke } from "@tauri-apps/api/tauri";
+
+	export let emojis = [];
+
+	async function refresh() {
+		await invoke("resize_all");
+		emojis = await invoke("get_filenames", { resized: true, absolute: false });
+	}
 </script>
 
-<button on:click={hide}>
-	HIDE
+<button on:click={refresh}>
+	REFRESH
 </button>
 
 <style lang="scss">
@@ -15,7 +19,7 @@
 		padding: 4px;
 		border-radius: 1vw;
 		border: none;
-		width: 50px;
+		width: 70px;
 		cursor: pointer;
 		transition: background-color 0.2s;
 

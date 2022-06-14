@@ -1,10 +1,16 @@
 <script lang="ts">
+	import { onMount } from "svelte";
+	import { writeText, readText } from '@tauri-apps/api/clipboard';
+	import { readBinaryFile, BaseDirectory } from "@tauri-apps/api/fs";
 	import { invoke } from "@tauri-apps/api/tauri"
 	import { appWindow } from "@tauri-apps/api/window";
 	import { ASSETS_PATH } from "../lib/constants";
 
 	export let img: string;
-	let filename = `${ASSETS_PATH}/${img}`;
+
+	// del
+	const filename = `${ASSETS_PATH}/resized/${img}`;
+	let img_data;
 
 	const copy = () => {
 		invoke("copy_image", {
@@ -12,10 +18,15 @@
 		});
 		appWindow.minimize();
 	};
+
+	onMount(async () => {
+		const bytes = await readBinaryFile(`Nitrate/resized/${img}`, { dir: BaseDirectory.Data });
+		img_data = "data:image/png;base64," + btoa(String.fromCharCode(...new Uint8Array(bytes)));
+	});
 </script>
 
 <button on:click={copy}>
-	<img src={`emojis/${img}`} alt={`emoji: ${img}`}/>
+	<img src={img_data} alt="img"/>
 </button>
 
 <style lang="scss">

@@ -1,41 +1,37 @@
 <script lang="ts">
-	import hotkeys from "hotkeys-js";
-	import { appWindow } from "@tauri-apps/api/window";
-
-	import Emoji from "./components/Emoji.svelte";
+	import { onMount } from "svelte";
+	import { readDir, createDir, BaseDirectory } from "@tauri-apps/api/fs";
 	import Hide from "./components/Hide.svelte";
+	import Refresh from "./components/Refresh.svelte";
+	import { invoke } from "@tauri-apps/api/tauri";
+	import Board from "./components/Board.svelte";
 
-	hotkeys("alt+r", function(event, handler) {
-		event.preventDefault();
-		appWindow.minimize();
-	});
+	let emojis: string[];
+
+	onMount(async () => {
+		await verifyDir();
+
+		await invoke("resize_all");
+
+		emojis = await invoke("get_filenames", { resized: true, absolute: false });
+	})
+
+	async function verifyDir() {
+		try {
+			await readDir("Nitrate/emojis", { dir: BaseDirectory.Data});
+		} catch (err) {
+			await createDir("Nitrate/emojis", { dir: BaseDirectory.Data, recursive: true});
+		}
+  	}
 </script>
 
 <header>
 	<Hide />
+	<Refresh bind:emojis />
 </header>
 
 <main>
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
-	<Emoji img="svelte.png" />
+	<Board emojis={emojis} />
 </main>
 
 <style lang="scss">
