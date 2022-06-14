@@ -10,9 +10,19 @@
         "beforeBuildCommand": "pnpm build"
     },
     "tauri": {
-        "allowlist": {
-            "all": true
-        },
+		"allowlist": {
+			"all": true,
+			"path": {
+			  	"all": true
+			},
+			"window": {
+				"all": true
+			},
+			"fs": {
+				"scope": ["$DATA/Nitrate/*"],
+				"all": true
+			}
+		},
         "bundle": {
             "active": true,
             "targets": "all",
