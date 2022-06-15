@@ -1,6 +1,6 @@
 {
   "name": "nitrate",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -22,7 +22,6 @@
     "vite": "^2.9.9"
   },
   "dependencies": {
-    "@tauri-apps/api": "^1.0.0-rc.6",
-    "hotkeys-js": "^3.9.4"
+    "@tauri-apps/api": "^1.0.0-rc.6"
   }
 }

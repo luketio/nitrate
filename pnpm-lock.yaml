@@ -5,7 +5,6 @@ specifiers:
   '@tauri-apps/api': ^1.0.0-rc.6
   '@tauri-apps/cli': ^1.0.0-rc.13
   '@tsconfig/svelte': ^2.0.1
-  hotkeys-js: ^3.9.4
   sass: ^1.52.1
   svelte: ^3.48.0
   svelte-check: ^2.7.1
@@ -16,7 +15,6 @@ specifiers:
 
 dependencies:
   '@tauri-apps/api': 1.0.0-rc.6
-  hotkeys-js: 3.9.4
 
 devDependencies:
   '@sveltejs/vite-plugin-svelte': 1.0.0-next.47_svelte@3.48.0+vite@2.9.9
@@ -587,10 +585,6 @@ packages:
     dependencies:
       function-bind: 1.1.1
     dev: true
-
-  /hotkeys-js/3.9.4:
-    resolution: {integrity: sha512-2zuLt85Ta+gIyvs4N88pCYskNrxf1TFv3LR9t5mdAZIX8BcgQQ48F2opUptvHa6m8zsy5v/a0i9mWzTrlNWU0Q==}
-    dev: false
 
   /immutable/4.1.0:
     resolution: {integrity: sha512-oNkuqVTA8jqG1Q6c+UglTOD1xhC1BtjKI7XkCXRkZHrN5m18/XsnUp8Q89GkQO/z+0WjonSvl0FLhDYftp46nQ==}
