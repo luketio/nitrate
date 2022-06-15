@@ -16,7 +16,7 @@
 		emojis = await invoke("get_filenames", { resized: true, absolute: true });
 	})
 
-	async function verifyDir() {
+	const verifyDir = async () => {
 		try {
 			await readDir("Nitrate/emojis", { dir: BaseDirectory.Data});
 		} catch (err) {

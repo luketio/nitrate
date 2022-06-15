@@ -3,7 +3,7 @@
 
 	export let emojis = [];
 
-	async function refresh() {
+	const refresh = async () => {
 		await invoke("resize_all");
 		emojis = await invoke("get_filenames", { resized: true, absolute: true });
 	}
