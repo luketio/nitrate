@@ -8,20 +8,24 @@
 
 	export let img: string;
 
-	// del
-	const filename = `${ASSETS_PATH}/resized/${img}`;
 	let img_data;
 
 	const copy = () => {
 		invoke("copy_image", {
-			filename: filename,
+			filename: img,
 		});
 		appWindow.minimize();
 	};
 
 	onMount(async () => {
+		/*
 		const bytes = await readBinaryFile(`Nitrate/resized/${img}`, { dir: BaseDirectory.Data });
 		img_data = "data:image/png;base64," + btoa(String.fromCharCode(...new Uint8Array(bytes)));
+		*/
+
+		img_data = await invoke("get_image_data", {
+			filename: img,
+		});
 	});
 </script>
 

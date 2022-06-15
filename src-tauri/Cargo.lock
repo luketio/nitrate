@@ -58,6 +58,7 @@ name = "app"
 version = "0.1.0"
 dependencies = [
  "arboard",
+ "base64",
  "image 0.24.2",
  "serde",
  "serde_json",

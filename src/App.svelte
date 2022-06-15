@@ -13,7 +13,7 @@
 
 		await invoke("resize_all");
 
-		emojis = await invoke("get_filenames", { resized: true, absolute: false });
+		emojis = await invoke("get_filenames", { resized: true, absolute: true });
 	})
 
 	async function verifyDir() {

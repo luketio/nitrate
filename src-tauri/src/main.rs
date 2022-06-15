@@ -13,6 +13,7 @@ fn main() {
 			clipboard::copy_image,
 			fs::get_filenames,
 			imageproc::resize_all,
+			imageproc::get_image_data,
 		])
         .run(tauri::generate_context!())
         .expect("failed to run Nitrate application");
