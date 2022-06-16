@@ -6,6 +6,7 @@ use image::io::Reader;
 
 use crate::fs::get_filenames;
 
+/// Reads image bytes and encodes them to Base64 string with headers
 #[tauri::command]
 pub fn get_image_data(filename: &str) -> String {
     let img = Reader::open(filename)
@@ -22,6 +23,7 @@ pub fn get_image_data(filename: &str) -> String {
     format!("data:image/png;base64,{res_base64}")
 }
 
+/// Resizes all images in emojis/ if they dont appear in resized/, also deletes emojis in resized/ if they do not appear in emojis/
 #[tauri::command]
 pub fn resize_all() {
     let resized = get_filenames(true, false);
@@ -45,6 +47,7 @@ pub fn resize_all() {
     }
 }
 
+/// Resizes a single image by creating a buffer and writing it to an output file
 fn resize(filename: &str) {
     if let Some(data_dir) = data_dir() {
         let fin = data_dir.join("Nitrate").join("emojis").join(filename);

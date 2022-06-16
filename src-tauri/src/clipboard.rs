@@ -1,3 +1,5 @@
+
+/// Copies image bytes to the clipboard so they can be pasted automatically
 #[tauri::command]
 pub fn copy_image(filename: String) {
     let mut ctx = ::arboard::Clipboard::new().expect("failed to create Clipboard context");

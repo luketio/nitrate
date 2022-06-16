@@ -11,6 +11,7 @@ mod fs;
 mod imageproc;
 
 fn main() {
+	// tauri builder
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
             clipboard::copy_image,

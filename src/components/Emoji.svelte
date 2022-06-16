@@ -8,6 +8,9 @@
 	let img_data;
 
 	const copy = () => {
+		/**
+		 * Copies the image to the clipboard
+		*/
 		invoke("copy_image", {
 			filename: img,
 		});
@@ -15,6 +18,11 @@
 	};
 
 	onMount(async () => {
+		/**
+		 * Runs once on the creation of an Emoji component
+		 * Gets the image data in Base64 String
+		 * @returns {Promise<void>}
+		*/
 		img_data = await invoke("get_image_data", {
 			filename: img,
 		});

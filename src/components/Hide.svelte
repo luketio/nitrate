@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { appWindow } from "@tauri-apps/api/window";
 	const hide = () => {
+		/**
+		 * Minimizes the window when clicked
+		*/
 		appWindow.minimize();
 	};
 </script>

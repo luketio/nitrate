@@ -4,6 +4,9 @@
 	export let emojis = [];
 
 	const refresh = async () => {
+		/**
+		 * Resizes, and refreshes UI every time the button is clicked
+		*/
 		await invoke("resize_all");
 		emojis = await invoke("get_filenames", { resized: true, absolute: true });
 	}

@@ -1,5 +1,7 @@
 use tauri::api::path::data_dir;
 
+/// Returns Vec of all filenames in the data directory
+/// parameters determine whether it returns absolute paths and whether emojis are resized or not
 #[tauri::command]
 pub fn get_filenames(resized: bool, absolute: bool) -> Vec<String> {
     if let Some(data_dir) = data_dir() {
