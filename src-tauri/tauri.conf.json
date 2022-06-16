@@ -1,7 +1,7 @@
 {
     "package": {
-        "productName": "nitrate",
-        "version": "0.1.0"
+        "productName": "Nitrate",
+        "version": "1.0.0"
     },
     "build": {
         "distDir": "../dist",
@@ -10,23 +10,10 @@
         "beforeBuildCommand": "pnpm build"
     },
     "tauri": {
-		"allowlist": {
-			"all": true,
-			"path": {
-			  	"all": true
-			},
-			"window": {
-				"all": true
-			},
-			"fs": {
-				"scope": ["$DATA/Nitrate/*"],
-				"all": true
-			}
-		},
         "bundle": {
             "active": true,
             "targets": "all",
-            "identifier": "com.tauri.dev",
+            "identifier": "com.github.nitrate",
             "icon": [
                 "icons/32x32.png",
                 "icons/128x128.png",
@@ -59,8 +46,19 @@
         "updater": {
             "active": false
         },
+        "allowlist": {
+			"window": {
+				"minimize": true
+			},
+			"fs": {
+				"scope": ["$DATA/Nitrate/*"],
+				"readDir": true,
+				"createDir": true
+			}
+		},
         "windows": [
             {
+				"title": "Nitrate",
                 "width": 400,
                 "height": 300,
                 "fullscreen": false,

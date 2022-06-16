@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { onMount } from "svelte";
+	import { invoke } from "@tauri-apps/api/tauri";
 	import { readDir, createDir, BaseDirectory } from "@tauri-apps/api/fs";
 	import Hide from "./components/Hide.svelte";
 	import Refresh from "./components/Refresh.svelte";
-	import { invoke } from "@tauri-apps/api/tauri";
 	import Board from "./components/Board.svelte";
 
 	let emojis: string[];

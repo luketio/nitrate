@@ -1,48 +1,22 @@
-# Svelte + TS + Vite
+# Nitrate
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
 
-## Recommended IDE Setup
+Name: Luke Tong
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+## Project description
+This is a project similiar to David Chen's [pingmote](https://github.com/dchen327/pingmote) project, but written in Rust and web technologies.
 
-## Need an official Svelte framework?
+I decided to implement this project with Tauri and Rust, meaning it's fast and lightweight compared to a lot of other similiar cross platform desktop app libraries. It also means I can design the UI using HTML, CSS, and JS frameworks, so while the graphics are rendered the same way as a normal website, rather than opening it with a browser like Chrome, Tauri uses WebViews to render it locally. The result is a fast, good looking, and easy to design UI that doesn't require an internet connection to use. It also looks the same on every platform.
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+## How to execute
+.dmg files are available for Mac in releases.
 
-## Technical considerations
+Click [here](https://github.com/luketio/nitrate/releases/download/v1.0.0/Nitrate_1.0.0_aarch64.dmg) to download the dmg, then run it.
 
-**Why use this over SvelteKit?**
+Install it like a normal dmg file and run Nitrate. Because it's not a signed app it may not work so you might have to go to settings to allow running of unsigned applications
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
-  `vite dev` and `vite build` wouldn't work in a SvelteKit environment, for example.
+First, run the application once.
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+Afterward, to add emojis, go to `~/Library/Application Support/Nitrate/emojis` and add any sort of picture that you want to use as an emoji.
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
-
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
-
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
-
-**Why include `.vscode/extensions.json`?**
-
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `allowJs` in the TS template?**
-
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+Then, in the app, click "refresh", and resized emojis should appear, and after clicking on any emoji you should be able to paste it anywhere you want.
